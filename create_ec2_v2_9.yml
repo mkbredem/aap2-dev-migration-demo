@@ -35,3 +35,8 @@
       vpc_subnet_id: "{{ subnet_id }}"
       assign_public_ip: yes
     register: ec2_instance_facts
+
+  - name: copy ec2_instance_facts to localhost
+    copy: 
+      content: "{{ ec2_instance_facts | to_nice_yaml }}"
+      dest: /var/tmp/ec2-facts.yml
