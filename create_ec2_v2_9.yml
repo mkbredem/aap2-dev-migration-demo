@@ -6,13 +6,13 @@
   hosts: localhost
   gather_facts: false
   vars:
-    security_group_id: sg-079ebd58a00104d74
-    ami_id: ami-0251f146af87abba4
+    security_group_id: sg-0bdbd70e35827b5f9
+    ami_id: ami-03debf3ebf61b20cd
     instance_size: m4.xlarge
-    instance_tags: {"Name":"mkb-platform-ec2-instance"}
+    instance_tags: {"Name":"aap2-migration-demo-v2_9"}
     vpc_id: vpc-0c905f1fdf60945bd
     ssh_key_name: ansible-ssa-demo-key
-    region: us-east-2
+    region: us-east-1
     subnet_id: subnet-0cd4ed414d34e70e5
 
 # Must install 
@@ -24,7 +24,7 @@
   - name: Provision instance
     ec2:
       aws_access_key: "{{AWS_ACCESS_KEY_ID}}"
-      aws_secret_key: "{{AWS_SECRET_KEY_ID}}"
+      aws_secret_key: "{{AWS_SECRET_ACCESS_KEY}}"
       region: "{{ region }}"
       key_name: "{{ ssh_key_name }}"
       group_id: "{{ security_group_id }}"
