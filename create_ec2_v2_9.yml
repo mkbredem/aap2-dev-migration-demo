@@ -1,0 +1,35 @@
+---
+# Old EC2 Module Docs:
+# https://docs.ansible.com/ansible/2.9/modules/ec2_module.html#ec2-module
+
+- name: Provision instance in AWS
+  hosts: localhost
+  gather_facts: false
+  vars:
+    security_group_id: sg-079ebd58a00104d74
+    ami_id: ami-0251f146af87abba4
+    instance_size: m4.xlarge
+    instance_tags: {"Name":"mkb-platform-ec2-instance"}
+    vpc_id: vpc-0c905f1fdf60945bd
+    ssh_key_name: ansible-ssa-demo-key
+    region: us-east-2
+    subnet_id: subnet-0cd4ed414d34e70e5
+
+# Must install 
+
+  collections: 
+    - amazon.aws
+
+  tasks:
+  - name: Provision instance
+    ec2:
+      region: "{{ region }}"
+      key_name: "{{ ssh_key_name }}"
+      group_id: "{{ security_group_id }}"
+      instance_type: "{{ instance_size }}"
+      instance_tags: "{{ instance_tags }}"
+      image: "{{ ami_id }}"
+      wait: yes
+      vpc_subnet_id: "{{ subnet_id }}"
+      assign_public_ip: yes
+    register: ec2_instance_facts
