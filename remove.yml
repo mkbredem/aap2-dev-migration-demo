@@ -8,3 +8,8 @@
         name: 
           - ansible
         state: present
+
+    # - name: add ansible repo
+    #   ansible.builtin.yum:
+    #     name: ansible-2.9-for-rhel-8-x86_64-rpms
+    #     enablerepo: ansible-2.9-for-rhel-8-x86_64-rpms
