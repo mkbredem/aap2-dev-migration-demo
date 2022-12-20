@@ -15,11 +15,6 @@
     region: us-east-1
     subnet_id: subnet-0cd4ed414d34e70e5
 
-# Must install 
-
-#  collections: 
-#    - amazon.aws
-
   tasks:
   - name: Provision instance
     ec2:
