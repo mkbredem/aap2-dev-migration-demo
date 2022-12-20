@@ -17,7 +17,7 @@
 
   tasks:
   - name: Provision instance
-    amazon.aws.ec2:
+    ec2:
       aws_access_key: "{{AWS_ACCESS_KEY_ID}}"
       aws_secret_key: "{{AWS_SECRET_ACCESS_KEY}}"
       region: "{{ region }}"
@@ -32,6 +32,6 @@
     register: ec2_instance_facts
 
   - name: copy ec2_instance_facts to localhost
-    ansible.builtin.copy: 
+    copy: 
       content: "{{ ec2_instance_facts | to_nice_yaml }}"
       dest: /var/tmp/ec2-facts.yml
