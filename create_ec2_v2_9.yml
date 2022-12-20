@@ -17,8 +17,8 @@
 
 # Must install 
 
-  collections: 
-    - amazon.aws
+#  collections: 
+#    - amazon.aws
 
   tasks:
   - name: Provision instance
