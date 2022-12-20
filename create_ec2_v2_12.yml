@@ -6,7 +6,7 @@
     security_group_id: sg-0bdbd70e35827b5f9
     ami_id: ami-03debf3ebf61b20cd
     instance_size: m4.xlarge
-    instance_tags: {"Name":"aap2-migration-demo-v2_9"}
+    instance_tags: {"Name":"aap2-migration-demo-v2_12"}
     vpc_id: vpc-0c905f1fdf60945bd
     ssh_key_name: ansible-ssa-demo-key
     region: us-east-1
